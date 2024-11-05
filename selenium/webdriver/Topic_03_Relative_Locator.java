@@ -2,6 +2,7 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.AfterClass;
@@ -18,12 +19,6 @@ public class Topic_03_Relative_Locator {
     @BeforeClass
     public void beforeClass() {
 
-        if (osName.contains("Mac OS")) {
-            System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
-        } else {
-            System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-        }
-
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -32,7 +27,29 @@ public class Topic_03_Relative_Locator {
     }
     @Test
     public void TC_01_Relative() {
-        RelativeLocator.with(By.tagName("label"));
+        By loginButtonBy =  By.cssSelector("button.login-button");
+        WebElement loginButtonElement = driver.findElement(By.cssSelector("button.login-button"));
+
+        // Remember Me Checkbox
+        By rememberMeCheckboxBy = By.id("RememberMe");
+
+        // Forgot Password Link
+        WebElement forgotPasswordElement = driver.findElement(By.cssSelector("span.forgot-password"));
+
+        // Password Textbox
+        By passwordTextboxBy = By.cssSelector("input#Password");
+
+
+        // GUI (location / position)
+        WebElement rememberMeTextElement = driver
+                .findElement(RelativeLocator.with(By.tagName("label"))
+                        .above(loginButtonBy)
+                        .toRightOf(rememberMeCheckboxBy)
+                        .toLeftOf(forgotPasswordElement)
+                        .below(passwordTextboxBy)
+                        .near(forgotPasswordElement));
+
+        System.out.println(rememberMeTextElement.getText());
     }
 
     @Test

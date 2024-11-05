@@ -18,13 +18,7 @@ public class Topic_02_Selenium_Locator {
     @BeforeClass
     public void beforeClass() {
 
-        if (osName.contains("Mac OS")) {
-            System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
-        } else {
-            System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-        }
-
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://demo.nopcommerce.com/register");
