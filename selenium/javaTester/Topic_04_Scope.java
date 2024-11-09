@@ -1,4 +1,4 @@
-package webdriver;
+package javaTester;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -7,13 +7,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-public class Topic_00_Template {
+public class Topic_04_Scope {
     WebDriver driver;
-    String projectPath = System.getProperty("user.dir");
-    String osName = System.getProperty("os.name");
 
     @BeforeClass
     public void beforeClass() {
@@ -22,7 +18,6 @@ public class Topic_00_Template {
         driver.manage().window().maximize();
         driver.get("");
     }
-
     @Test
     public void TC_01_() {
     }
@@ -35,21 +30,12 @@ public class Topic_00_Template {
     public void TC_03_() {
     }
 
+    @Test
+    public void TC_04_() {
+    }
+
     @AfterClass
     public void afterClass() {
         driver.quit();
-    }
-
-
-    public void sleepInSecond(long timeInSecond) {
-        try {
-            Thread.sleep(timeInSecond * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getEmailAddress () {
-        return "AutoTest"+ new Random().nextInt(999) + "@vnn.uss";
     }
 }
