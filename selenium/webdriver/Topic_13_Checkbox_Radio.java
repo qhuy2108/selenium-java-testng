@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
-public class Topic_12_Checkbox_Radio {
+public class Topic_13_Checkbox_Radio {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");

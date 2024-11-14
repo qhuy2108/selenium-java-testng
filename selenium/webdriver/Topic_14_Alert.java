@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 
-public class Topic_13_Alert {
+public class Topic_14_Alert {
     WebDriver driver;
     WebDriverWait explicitWait;
     String projectLocation = System.getProperty("user.dir");
