@@ -35,15 +35,6 @@ public class Topic_04_Register {
         System.out.println(userPassword);
     }
 
-    @Test
-    public void TC_02_Login() {
-
-    }
-
-    @Test
-    public void TC_03_() {
-    }
-
     @AfterClass
     public void afterClass() {
         driver.quit();

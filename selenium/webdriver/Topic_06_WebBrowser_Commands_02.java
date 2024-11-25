@@ -8,9 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.Set;
 
-public class Topic_08_WebBrowser_Commands_02 {
+public class Topic_06_WebBrowser_Commands_02 {
     WebDriver driver;
     WebElement element;
 

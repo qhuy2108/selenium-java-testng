@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.HasDevTools;
 import org.openqa.selenium.devtools.v130.network.Network;
@@ -24,7 +25,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 
-public class Topic_14_Alert {
+public class Topic_13_Alert {
     WebDriver driver;
     WebDriverWait explicitWait;
     String projectLocation = System.getProperty("user.dir");

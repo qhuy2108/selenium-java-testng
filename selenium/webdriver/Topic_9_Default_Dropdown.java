@@ -2,7 +2,6 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -11,10 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Random;
 
-public class Topic_10_Default_Dropdown {
+public class Topic_9_Default_Dropdown {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");

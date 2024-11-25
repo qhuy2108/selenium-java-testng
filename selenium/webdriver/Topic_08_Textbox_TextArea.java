@@ -3,7 +3,6 @@ package webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -13,7 +12,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_09_Textbox_TextArea {
+public class Topic_08_Textbox_TextArea {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");

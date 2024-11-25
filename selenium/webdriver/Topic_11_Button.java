@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_12_Button {
+public class Topic_11_Button {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");

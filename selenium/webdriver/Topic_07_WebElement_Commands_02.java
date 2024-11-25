@@ -1,7 +1,6 @@
 package webdriver;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -10,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Topic_08_WebElement_Commands_02 {
+public class Topic_07_WebElement_Commands_02 {
     WebDriver driver;
 
 
