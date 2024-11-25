@@ -50,6 +50,6 @@ public class Topic_00_Template {
     }
 
     public String getEmailAddress () {
-        return "AutoTest"+ new Random().nextInt(999) + "@vnn.uss";
+        return "AutoTest"+ new Random().nextInt(999) + "@@email.com";
     }
 }
