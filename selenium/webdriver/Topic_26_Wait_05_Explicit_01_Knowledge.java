@@ -17,7 +17,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Random;
 
-public class Topic_26_Wait_04_Explicit_01_Knowledge {
+public class Topic_26_Wait_05_Explicit_01_Knowledge {
     WebDriver driver;
     WebDriverWait explicitWait;
     FluentWait<WebDriver> fluentWait;
