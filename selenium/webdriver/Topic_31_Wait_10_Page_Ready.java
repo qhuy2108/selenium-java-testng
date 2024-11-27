@@ -38,7 +38,6 @@ public class Topic_31_Wait_10_Page_Ready {
         driver = new FirefoxDriver();
 
         driver.manage().window().setSize(new Dimension(1800, 900));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
     }
 
@@ -108,12 +107,17 @@ public class Topic_31_Wait_10_Page_Ready {
     }
 
     @Test
-    public void TC_02_Upload_Files() {
+    public void TC_02_Orange_HRM_Online() {
 
-    }
+        // Trang này chưa load xong mà Page nó cũng ready trả về True rồi nên không dùng hàm PageReady được
+        // phải check trang web trước xem Page dạng nào
 
-    @Test
-    public void TC_03_Greater_Than_5s() {
+        driver.get("https://api.orangehrm.com/");
+
+        explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div#loader>div.spinner")));
+
+        Assert.assertTrue(driver.findElement(By.xpath("//h1[text()='OrangeHRM REST API Documentation']")).isDisplayed());
+
     }
 
 

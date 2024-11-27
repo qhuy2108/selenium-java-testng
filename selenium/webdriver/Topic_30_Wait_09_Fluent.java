@@ -81,8 +81,8 @@ public class Topic_30_Wait_09_Fluent {
         
         fluentDriver.until(new Function<WebDriver, Boolean>() {
             @Override
-            public Boolean apply(WebDriver driver) {
-                return driver.findElement(By.xpath("//div[@id='finish']/h4[text()='Hello World!']")).isDisplayed();
+            public Boolean apply(WebDriver webDriver) {
+                return webDriver.findElement(By.xpath("//div[@id='finish']/h4[text()='Hello World!']")).isDisplayed();
             }
         });
 
@@ -124,8 +124,8 @@ public class Topic_30_Wait_09_Fluent {
 
         return fluentWaitDriver.until(new Function<WebDriver, WebElement>() {
             @Override
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(locator);
+            public WebElement apply(WebDriver webDriver) {
+                return webDriver.findElement(locator);
             }
         });
     }
