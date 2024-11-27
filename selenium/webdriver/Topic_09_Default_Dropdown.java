@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_9_Default_Dropdown {
+public class Topic_09_Default_Dropdown {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");
