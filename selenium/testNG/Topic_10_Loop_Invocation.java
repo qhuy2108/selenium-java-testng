@@ -1,83 +1,33 @@
-package webdriver;
+package testNG;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_08_Textbox_TextArea {
+public class Topic_10_Loop_Invocation {
+
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
-    String osName = System.getProperty("os.name");
 
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); //version 4
-        driver.manage().window().setSize(new Dimension(1600,1080));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
+    
 
-    @Test
-    public void Login_01_Empty_Email_And_Password() {
-        driver.get("http://live.techpanda.org/index.php");
-
-        driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
-        sleepInSecond(1);
-
-        driver.findElement(By.cssSelector("button#send2")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div#advice-required-entry-email")).getText(), "This is a required field.");
-        Assert.assertEquals(driver.findElement(By.cssSelector("div#advice-required-entry-pass")).getText(), "This is a required field.");
-
-    }
-
-    @Test
-    public void Login_02_Invalid_Email() {
-        driver.get("http://live.techpanda.org/index.php");
-        driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
-        sleepInSecond(1);
-
-        driver.findElement(By.cssSelector("input#email")).sendKeys("123@456.567");
-        driver.findElement(By.cssSelector("input#pass")).sendKeys("123456");
-        driver.findElement(By.cssSelector("button#send2")).click();
-
-        Assert.assertEquals(driver.findElement(By.cssSelector("#advice-validate-email-email")).getText(), "Please enter a valid email address. For example johndoe@domain.com.");
-
-    }
-
-    @Test
-    public void Login_03_Invalid_Password() {
-        driver.get("http://live.techpanda.org/index.php");
-        driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
-        sleepInSecond(1);
-
-        driver.findElement(By.cssSelector("input#email")).sendKeys("auto@vnn.uss");
-        driver.findElement(By.cssSelector("input#pass")).sendKeys("1234");
-        driver.findElement(By.cssSelector("button#send2")).click();
-
-        Assert.assertEquals(driver.findElement(By.cssSelector("div#advice-validate-password-pass")).getText(), "Please enter 6 or more characters without leading or trailing spaces.");
-
-    }
-    @Test
-    public void Login_04_Incorrect_Email_Or_Password() {
-        driver.get("http://live.techpanda.org/index.php");
-        driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
-        sleepInSecond(1);
-
-        driver.findElement(By.cssSelector("input#email")).sendKeys("auto@vnn.uss");
-        driver.findElement(By.cssSelector("input#pass")).sendKeys("123456");
-        driver.findElement(By.cssSelector("button#send2")).click();
-
-        Assert.assertEquals(driver.findElement(By.xpath("//span[text()='Invalid login or password.']")).getText(), "Invalid login or password.");
-    }
-    @Test
-    public void Login_05_Success() {
+    @Test(invocationCount = 3)
+    public void TC_01()  {
         driver.get("http://live.techpanda.org/index.php");
         driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
         driver.findElement(By.cssSelector("a[title= 'Create an Account']")).click();
@@ -119,14 +69,12 @@ public class Topic_08_Textbox_TextArea {
         Assert.assertEquals(driver.findElement(By.cssSelector("#lastname")).getAttribute("value"), lastName);
         Assert.assertEquals(driver.findElement(By.cssSelector("#email")).getAttribute("value"), email);
 
+        System.out.println(email+" "+password+"\n");
+
+        driver.findElement(By.cssSelector("a.skip-account")).click();
+        driver.findElement(By.cssSelector("a[title= 'Log Out']")).click();
+
     }
-
-    @AfterClass
-    public void afterClass() {
-
-        // driver.quit();
-    }
-
 
     public void sleepInSecond(long timeInSecond) {
         try {
@@ -140,6 +88,9 @@ public class Topic_08_Textbox_TextArea {
         return "AutoTest"+ new Random().nextInt(999) + "@mail.com";
     }
 
-
+    @AfterClass
+    public void afterClass() {
+        //driver.quit();
+    }
 
 }

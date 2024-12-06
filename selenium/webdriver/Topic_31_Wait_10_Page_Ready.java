@@ -32,10 +32,11 @@ public class Topic_31_Wait_10_Page_Ready {
 
     @BeforeClass
     public void beforeClass() {
-//        FirefoxOptions firefoxOptions = new FirefoxOptions();
-//        firefoxOptions.addArguments("-private");
-
-        driver = new FirefoxDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe");
+        options.addArguments("--user-data-dir=C:/Users/Qhuy/AppData/Local/BraveSoftware/Brave-Browser/User Data/");
+        options.addArguments("--profile-directory=Profile 1");
+        driver = new ChromeDriver(options);
 
         driver.manage().window().setSize(new Dimension(1800, 900));
 
@@ -78,10 +79,6 @@ public class Topic_31_Wait_10_Page_Ready {
     @Test
     public void TC_01_Admin_Nocommerce() {
 
-        /*ChromeOptions options = new ChromeOptions();
-        options.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
-        driver = new ChromeDriver(options);*/
-
         driver.get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
 
         explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -97,10 +94,16 @@ public class Topic_31_Wait_10_Page_Ready {
         sleepInSecond(2);
 
         Assert.assertTrue(isPageLoadedSuccess());
+        Assert.assertTrue(isPageLoadedSuccess());
+        Assert.assertTrue(isPageLoadedSuccess());
+        Assert.assertTrue(isPageLoadedSuccess());
 
         driver.findElement(By.xpath("//i[contains(@class, 'fa-user')]/following-sibling::p")).click();
+
+        sleepInSecond(2);
+
         driver.findElement(By.xpath
-                ("//li[contains(@class, 'menu-open')]//ul[@class='nav nav-treeview']//p[contains(text(), 'Customers')]")).click();
+                ("//li[contains(@class, 'menu-open')]//ul[@class='nav nav-treeview']//p[contains(string(), 'Customers')]")).click();
 
         Assert.assertTrue(isPageLoadedSuccess());
 
