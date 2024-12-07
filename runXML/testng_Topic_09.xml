@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" verbose="1" parallel="tests" thread-count="3">
+
+    <!--                      Global                               -->
+    <parameter name="enviroment" value="live"></parameter>
+
+
+    <test name="Run on Firefox browser">
+        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="version" value="latest"></parameter>
+        <classes>
+            <class name="testNG.Topic_09_Parameter"></class>
+        </classes>
+    </test>
+    <test name="Run on Chrome browser">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="version" value="latest"></parameter>
+        <classes>
+            <class name="testNG.Topic_09_Parameter"></class>
+        </classes>
+    </test>
+    <test name="Run on Edge browser">
+        <parameter name="browser" value="edge"></parameter>
+        <parameter name="version" value="latest"></parameter>
+        <classes>
+            <class name="testNG.Topic_09_Parameter"></class>
+        </classes>
+    </test>
+</suite>

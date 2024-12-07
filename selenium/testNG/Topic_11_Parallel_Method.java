@@ -44,7 +44,6 @@ public class Topic_11_Parallel_Method {
 
     @AfterMethod
     public void afterMethod () {
-        // driver.quit();
     }
 
 }
