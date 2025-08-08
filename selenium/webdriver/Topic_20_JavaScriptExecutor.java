@@ -20,7 +20,7 @@ public class Topic_20_JavaScriptExecutor {
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
-        driver.manage().window().setSize(new Dimension(1600,900));
+        driver.manage().window().setSize(new Dimension(1600, 900));
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
@@ -44,14 +44,6 @@ public class Topic_20_JavaScriptExecutor {
 
     public void scrollToBottomPage() {
         jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-    }
-
-    public void sleepInSeconds(long timeout) {
-        try {
-            Thread.sleep(timeout * 1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void navigateToUrlByJS(String url) {
@@ -81,7 +73,7 @@ public class Topic_20_JavaScriptExecutor {
     }
 
     public void setAttributeInDOM(String locator, String attributeName, String attributeValue) {
-        jsExecutor.executeScript("arguments[0].setAttribute('" + attributeName + "', '" + attributeValue +"');", getElement(locator));
+        jsExecutor.executeScript("arguments[0].setAttribute('" + attributeName + "', '" + attributeValue + "');", getElement(locator));
     }
 
     public void removeAttributeInDOM(String locator, String attributeRemove) {
@@ -193,8 +185,13 @@ public class Topic_20_JavaScriptExecutor {
         // driver.quit();
     }
 
-
-
+    public void sleepInSeconds(long timeout) {
+        try {
+            Thread.sleep(timeout * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void sleepInSecond(long timeInSecond) {
         try {
@@ -204,7 +201,7 @@ public class Topic_20_JavaScriptExecutor {
         }
     }
 
-    public String getEmailAddress () {
-        return "AutoTest"+ new Random().nextInt(999) + "@email.com";
+    public String getEmailAddress() {
+        return "AutoTest" + new Random().nextInt(999) + "@email.com";
     }
 }

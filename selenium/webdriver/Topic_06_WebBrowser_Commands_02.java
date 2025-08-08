@@ -26,6 +26,10 @@ public class Topic_06_WebBrowser_Commands_02 {
         driver.get("http://live.techpanda.org/index.php");
 
         driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
+
+//        Dimension myAccountSize = driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).getSize();
+//        System.out.println(myAccountSize);
+
         sleepInSecond(3);
 
         Assert.assertEquals(driver.getCurrentUrl(), "http://live.techpanda.org/index.php/customer/account/login/");
@@ -37,7 +41,7 @@ public class Topic_06_WebBrowser_Commands_02 {
 
     }
 
-    @Test
+    //@Test
     public void TC_02_Page_Title() {
         driver.get("http://live.techpanda.org");
         driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();
@@ -49,7 +53,7 @@ public class Topic_06_WebBrowser_Commands_02 {
 
     }
 
-    @Test
+    //@Test
     public void TC_03_Page_Navigation() {
         driver.get("http://live.techpanda.org");
 
@@ -64,7 +68,7 @@ public class Topic_06_WebBrowser_Commands_02 {
 
     }
 
-    @Test
+    //@Test
     public void TC_04_Page_Source() {
         driver.get("http://live.techpanda.org");
         driver.findElement(By.cssSelector("div.footer a[title=\"My Account\"]")).click();

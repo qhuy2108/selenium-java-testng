@@ -71,7 +71,19 @@ public class Topic_16_Shadow_DOM {
     }
 
     @Test
-    public void TC_03_() {
+    public void TC_03_JS() {
+        driver.get("https://automationfc.github.io/shadow-dom/");
+
+
+        WebElement shadowHostElement = driver.findElement(By.xpath("//div[@id='shadow_host']"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement shadowContent = (WebElement) js.executeScript(
+                "return arguments[0].shadowRoot.querySelector('span#shadow_content > span')",
+                shadowHostElement);
+        String innerText = shadowContent.getText();
+        System.out.println(innerText);
+        Assert.assertEquals(innerText,"some text");
+
     }
 
     @AfterClass
